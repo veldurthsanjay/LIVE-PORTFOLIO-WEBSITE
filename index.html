@@ -48,7 +48,7 @@
             </div>
 
             <div class="btn-box">
-                <a href="Sanjay UI Resume.pdf" download="" class="btn">Download CV</a>
+                <a href="Sanjay Resume UI.pdf" download="" class="btn">Download CV</a>
                 <a href="mailto:veldurthsanjay@gmail.com" class="btn">Hire Me Now!</a>
             
             </div>
@@ -336,6 +336,46 @@
 
     <script src="mixitup.min.js"></script>
     <script src="script.js"></script>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting the default way
+
+        // Collect form data
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var address = document.getElementById('address').value;
+        var phone = document.getElementById('phone').value;
+        var message = document.getElementById('message').value;
+
+        // Validate form data
+        if (!name || !email || !message) {
+            alert('Please fill out your name, email, and message.');
+            return;
+        }
+
+        // Here you can add more specific validation, e.g., regex for email, phone number format, etc.
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        // If validation is successful, handle form data (e.g., send to server)
+        // For demonstration, we'll just log the data to the console
+        console.log('Form Data:', {
+            name: name,
+            email: email,
+            address: address,
+            phone: phone,
+            message: message
+        });
+
+        // Reset the form
+        document.getElementById('contactForm').reset();
+
+        alert('Thank you for your message!');
+    });
+</script>
 
 </body>
 </html>

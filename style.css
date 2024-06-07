@@ -311,36 +311,96 @@ section{
     width: 100%;
 }
 
-.home-image{
+/* Container for the home image with a scroll-scale effect */
+.home-image {
     position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: auto;
+    padding: 20px;
+    border-radius: 50%; /* Rounded container */
+    background: #e00707;
+    box-shadow: 0 30px 40px rgba(185, 5, 5, 0.964);
 }
 
-.img-box{
-    text-align: center;
+/* Box containing the image */
+.img-box {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 50%; /* Rounded image box */
 }
 
-.img-box img{
-    width: min(rem,);
-    border-radius: 30%;
-    max-width: 1100px;
-    height: cover;
-    margin-top: 90px;
-    margin-left: 200px;
+/* Image styling */
+.img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%; /* Rounded image */
+    animation: floatImage 6s infinite ease-in-out;
 }
 
-.liquid-shape{
+/* Float effect for the image */
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Liquid shape overlay */
+.liquid-shape {
     position: absolute;
-    width: 100px;
-    height: 100px;
-
-    z-index: 0;
-    background-color: #070101;
-    margin-top: 70px;
-    margin-left: 450px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 50%; /* Rounded liquid shape */
+    background: rgba(3, 54, 53, 0.3); /* Semi-transparent background */
+    animation: rotateOverlay 10s infinite linear;
 }
 
-.liquid-shape:nth-child(2){
-    filter: blur(50px);
+/* Rotate effect for the liquid shape overlay */
+@keyframes rotateOverlay {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulsating effect for the container */
+.home-image::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    border: 5px solid rgba(222, 51, 13, 0.5);
+    border-radius: 50%;
+    z-index: 0;
+    animation: pulseBorder 2s infinite ease-in-out;
+}
+
+/* Pulsating border effect */
+@keyframes pulseBorder {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
 }
 
 
@@ -354,18 +414,86 @@ section{
     background: var(--secon-bg-color);
 }
 
-.about .img-about{
-    text-align: center;
+/* Container for the about image with a scroll-scale effect */
+.img-about {
     position: relative;
+    overflow: hidden;
+    width: 300px; /* Reduced width */
+    height: 300px; /* Reduced height */
+    margin: auto;
+    padding: 10px;
+    border-radius: 50%; /* Rounded container */
+    background: linear-gradient(135deg, #ed0810, #de0c0c);
+    box-shadow: 0 10px 20px rgb(233, 18, 18);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.about .img-about img{
-   /* max-width: 250px;
-    height: auto;*/
-    width: min(16rem,50%);
-    border-radius: 100%;
+.img-about:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(213, 13, 13, 0.986);
 }
 
+/* Image styling */
+.img-about img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+    border-radius: 50%; /* Rounded image */
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.img-about:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Overlay effect */
+.info-about2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(167, 154, 255, 0.979), rgba(250, 208, 196, 0.4));
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    animation: rotateOverlay 5s infinite linear;
+}
+
+/* Rotate effect for the overlay */
+@keyframes rotateOverlay {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Glow effect */
+.img-about::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border-radius: 50%;
+    z-index: 0;
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Pulsating glow effect */
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
 .about-content span{
     color: #fdfdfd;
     font-size: .8rem;
@@ -709,44 +837,131 @@ section{
     color: var(--secon-bg-color);
 }
 
-/* Contact section css */
-.contant{
-    background: var(--secon-bg-color);
-    width: 100%;
+/* Contact Section */
+.contact {
+    padding: 50px 50px;
+    background: #000000;
+    color: #fff;
 }
 
-.contant form{
-    text-align: center;
-    max-width: 50rem;
-    margin: 1rem auto;
-    margin-bottom: 3rem;
+.contact .heading-section {
+    margin-bottom: 30px;
 }
 
-.contant form input,
-.contant form textarea{
-    width: 100%;
-    color: var(--text-color);
-    background: var(--bg-color);
-    margin-bottom: .8rem;
-    border: none;
-    border-radius: 5px;
-    padding: .7rem;
+.contact .heading-section .big {
+    font-size: 60px;
+    opacity: 0.1;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
 }
 
-.contant form textarea{
-    resize: none;
+.contact .heading-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f5f3f3;
 }
 
-.formBtn{
+.contact .contact-info {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.formBtn .btn{
-    cursor: pointer;
-    font-size: 1rem;
+.contact .contact-info .box {
+    background: #06120e;
+    border-radius: 10px;
+    padding: 30px 10px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 220px;
 }
+
+.contact .contact-info .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(222, 15, 19, 0.907);
+}
+
+.contact .contact-info .icon {
+    font-size: 40px;
+    color: #17a2b8;
+    margin-bottom: 20px;
+}
+
+.contact .contact-info h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.contact.contact-info p a {
+    color: #d2902d;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.contact .contact-info p a:hover {
+    color: #17a2b8;
+}
+
+/* Icons */
+.icon-whatsapp::before {
+    content: "\f232";
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 400;
+}
+
+.icon-github::before {
+    content: "\f09b";
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 300;
+}
+
+.icon-phone2::before {
+    content: "\f3cd";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 800;
+}
+
+.icon-envelope::before {
+    content: "\f0e0";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ftco-animate {
+    animation: fadeInUp 1s both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact .contact-info .box {
+        padding: 30px 15px;
+    }
+    .contact .heading-section h2 {
+        font-size: 28px;
+    }
+    .contact .heading-section .big {
+        font-size: 40px;
+    }
+}
+
 
 /* footer css */
 footer{

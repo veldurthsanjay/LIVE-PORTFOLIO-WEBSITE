@@ -308,74 +308,70 @@
     
             </div>
           </section>
-      <!-- contact section -------------------------------------------------------->
+    
+<!-- contact section -------------------------------------------------------->
 
-      <section id="contact" class="contant">
-        <div class="main-text scroll-scale">
-            <span>ask me question</span>
-            <h2>Contact Me</h2>          
-        </div>
-
-        <form action="#" class="scroll-bottom">
-            <input type="text" placeholder="Your Name">
-            <input type="text" placeholder="Your Email">
-            <input type="text" placeholder="Your Address">
-            <input type="number" placeholder="Phone Number">
-            <textarea name="" id="" cols="30" rows="10">Your Message</textarea>
-            <div class="btn-box formBtn">
-                <button type="submit" class="btn">Send Message</button>
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+              <h1 class="big big-2">Contact</h1>
+              <h2 class="mb-4">Contact Me</h2>
+             
             </div>
-        </form>
-    </section>
+          </div>
+  
+          <div class="row d-flex contact-info mb-5">
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box p-4 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <a href="https://api.whatsapp.com/send?phone=7330625526"><span class="icon-whatsapp"></span></a>
+                    </div>
+                    <h3 class="mb-4">Whatsapp</h3>
+                  <p><a href="https://api.whatsapp.com/send?phone=7330625526">7330625526</a></p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box p-4 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <a href="https://github.com/veldurthsanjay"><span class="icon-github"></span></a>
+                    </div>
+                    <h3 class="mb-4">Github</h3>
+                    <p><a href="https://github.com/veldurthsanjay">veldurthsanjay</a></p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box p-4 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <a href="tel:7330625526"><span class="icon-phone2"></span></a>
+                    </div>
+                    <h3 class="mb-4">Contact</h3>
+                    <p><a href="tel:7330625526"    >7330625526</a></p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box p-4 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <a href="mailto:veldurthsanjay@gmail.com"><span class=" icon-envelope"></span></a>
+                    </div>
+                    <h3 class="mb-4">Email</h3>
+                    <p><a href="mailto:veldurthsanjay@gmail.com">veldurthsanjay@gmail.com</a></p>
+                </div>
+            </div> 
+          </div>
+
+     
     <!-- footer website -->
     <footer>
-        <p class="scroll-scale">Copyright &copy; 2024 by sanjay || All Right  Reservd.</p>
+        <h2 class="scroll-scale">Copyright &copy; 2024 by sanjay || All Right  Reserevd.</h2>
         <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
     </footer> 
       
 
     <script src="mixitup.min.js"></script>
     <script src="script.js"></script>
-    <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form from submitting the default way
-
-        // Collect form data
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var address = document.getElementById('address').value;
-        var phone = document.getElementById('phone').value;
-        var message = document.getElementById('message').value;
-
-        // Validate form data
-        if (!name || !email || !message) {
-            alert('Please fill out your name, email, and message.');
-            return;
-        }
-
-        // Here you can add more specific validation, e.g., regex for email, phone number format, etc.
-        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        if (!emailPattern.test(email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-
-        // If validation is successful, handle form data (e.g., send to server)
-        // For demonstration, we'll just log the data to the console
-        console.log('Form Data:', {
-            name: name,
-            email: email,
-            address: address,
-            phone: phone,
-            message: message
-        });
-
-        // Reset the form
-        document.getElementById('contactForm').reset();
-
-        alert('Thank you for your message!');
-    });
-</script>
+  
 
 </body>
 </html>
